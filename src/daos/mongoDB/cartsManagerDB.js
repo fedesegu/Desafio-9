@@ -1,5 +1,5 @@
 import { cartsModel } from "../../dao/models/carts.model.js";
-import { manager } from "../../daos/mongoDB/productManagerDB.js";
+import { productsManager } from "../../daos/mongoDB/productManagerDB.js";
 
 class CartsManager {
     async findAll() {
@@ -45,7 +45,7 @@ class CartsManager {
             const totalProducts = selectedCart.products.reduce((total, product) => total + product.quantity, 0);
             let totalPrice = 0;
             selectedCart.products.forEach(async cartProduct => {
-                const product = await manager.findById(cartProduct.product);
+                const product = await productsManager.findById(cartProduct.product);
                 const productPriceUnit = product ? product.price : 0;
                 const individualProductPrice = cartProduct.quantity * productPriceUnit;
                 totalPrice += individualProductPrice;
@@ -70,7 +70,7 @@ class CartsManager {
                 const totalProducts = selectedCart.products.reduce((total, product) => total + product.quantity, 0);
                 let totalPrice = 0;
                 selectedCart.products.forEach(async cartProduct => {
-                    const product = await manager.findById(cartProduct.product);
+                    const product = await productsManager.findById(cartProduct.product);
                     const productPriceUnit = product ? product.price : 0;
                     const individualProductPrice = cartProduct.quantity * productPriceUnit;
                     totalPrice += individualProductPrice;
@@ -107,7 +107,7 @@ class CartsManager {
             const totalProducts = selectedCart.products.reduce((total, product) => total + product.quantity, 0);
                 let totalPrice = 0;
                 selectedCart.products.forEach(async cartProduct => {
-                    const product = await manager.findById(cartProduct.product);
+                    const product = await productsManager.findById(cartProduct.product);
                     const productPriceUnit = product ? product.price : 0;
                     const individualProductPrice = cartProduct.quantity * productPriceUnit;
                     totalPrice += individualProductPrice;

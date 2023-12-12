@@ -17,4 +17,4 @@ class UsersManager {
     }
 }
 
-export const Users = new UsersManager();
+export const usersManager = new UsersManager();

@@ -1,4 +1,4 @@
-import { usersManager } from "../dao/users.dao.js"
+import { usersManager } from "../daos/mongoDB/usersManagerDB.js"
 import { hashData } from "../utils.js"
 
 export const findAllUsers = (obj) => {

@@ -3,7 +3,7 @@ import { usersManager } from "./daos/mongoDB/usersManagerDB.js";
 import { Strategy as GithubStrategy } from "passport-github2";
 import { Strategy as LocalStrategy} from "passport-local"
 import { hashData, compareData} from "./utils.js";
-import { ExtractJwt, trategy as JWTStrategy } from "passport-jwt";
+import { ExtractJwt, Strategy as JWTStrategy } from "passport-jwt";
 import config from "./config.js";
 
 passport.serializeUser((user,done)=>{
@@ -58,9 +58,9 @@ passport.use("login", new LocalStrategy({usernameField:"email"}, async(email,pas
 }))
 
 passport.use("github", new GithubStrategy({
-    clientID:"Iv1.c748f46a6f06769d",
-    clientSecret: "d51347c54a2e0b3aa2b025ef296957770757c3b3",
-    callbackURL:"http://localhost:8088/api/sessions/callback"
+    clientID:"",
+    clientSecret: "",
+    callbackURL:""
 }, async(accessToke, refreshToken, profile, done) => {
     try{
         const userDB = await usersManager.findByEmail(profile._json.email)

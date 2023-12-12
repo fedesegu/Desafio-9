@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { messagesManager } from "../daos/mongoDB/messageManagerDB.js";
-import { usersManager } from "../daos/mongoDB/messageManagerDB.js";
+import { usersManager } from "../daos/mongoDB/usersManagerDB.js";
 import { productsManager } from "../daos/mongoDB/productManagerDB.js";
 import { cartsManager } from "../daos/mongoDB/cartsManagerDB.js";
 

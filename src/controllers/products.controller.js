@@ -1,4 +1,4 @@
-import { create, deleteProductById, findAllProducts, findProductById, upDateProductById } from "../services/products.services.js";
+import { create, deleteProductById, findAllProducts, findProductById, upDateProductById } from "../services/product.services.js";
 
 
 
