@@ -51,4 +51,4 @@ class ProductsManager {
     
 }
 
-export const manager = new ProductsManager();
+export const productsManager = new ProductsManager();

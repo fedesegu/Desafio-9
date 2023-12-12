@@ -120,4 +120,4 @@ class CartsManager {
     
 };
 
-export const Cart = new CartsManager();
+export const cartsManager = new CartsManager();

@@ -1,9 +1,9 @@
 import passport from "passport";
-import { usersManager } from "./dao/users.dao.js";
+import { usersManager } from "./daos/mongoDB/usersManagerDB.js";
 import { Strategy as GithubStrategy } from "passport-github2";
 import { Strategy as LocalStrategy} from "passport-local"
 import { hashData, compareData} from "./utils.js";
-import { ExtractJwt, Strategy as JWTStrategy } from "passport-jwt";
+import { ExtractJwt, trategy as JWTStrategy } from "passport-jwt";
 import config from "./config.js";
 
 passport.serializeUser((user,done)=>{
@@ -46,14 +46,10 @@ passport.use("login", new LocalStrategy({usernameField:"email"}, async(email,pas
             return done(null, false, { message: "Incorrect email or password." })
         }
         
-        //const isPasswordValid = password === user.password
         const isPasswordValid = await compareData(password, user.password)
         if(!isPasswordValid){
             return done(null, false, { message: "Incorrect email or password." })
         }
-        //const products = await productsManager.findAll({limit:10, page:1, sort:{}, query:{} })
-        //const docs = products.payload.docs
-        //res.render("products",{products: docs,user:user.firstName});
         done(null, user);
     } catch (error) {
         console.log(error)

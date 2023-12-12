@@ -1,5 +1,5 @@
 import { existsSync, promises } from "fs";
-const path = "CartsFile.json";
+const path = "cartsFile.json";
 
 class Carts {
     async getCartsList() {

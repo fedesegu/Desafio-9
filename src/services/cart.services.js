@@ -1,4 +1,4 @@
-import { cartsManager } from "../dao/carts.dao.js"
+import { cartsManager } from "../daos/mongoDB/cartsManagerDB.js"
 
 export const findAllCarts = () => {
     const carts = cartsManager.findAll()

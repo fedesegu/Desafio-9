@@ -1,4 +1,4 @@
-import { productsManager } from "../dao/products.dao.js"
+import { productsManager } from "../daos/mongoDB/productManagerDB.js"
 
 
 export const findAllProducts = (obj) => {

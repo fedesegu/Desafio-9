@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const path = 'productManager.json';
+const path = 'productsFile.json';
 
 class productManager {
     async getProductList() {
