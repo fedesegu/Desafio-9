@@ -17,7 +17,7 @@ import passport from "passport";
 import "./passport.js"
 import config from "./config.js"
 
-const URI = config.mongo_uri
+const URI = "mongodb+srv://federicosegu:Abeyp231cluster0.gjwkb4d.mongodb.net/CoderDesafio9?retryWrites=true&w=majority";
 const app = express();
 
 app.use(session({
@@ -47,8 +47,8 @@ app.use("/api/carts", cartsRouter);
 app.use("/api/users", usersRouter);
 app.use("/api/sessions", sessionsRouter);
 
-const httpServer = app.listen(8088, () => {
-  console.log("Escuchando al puerto 8088");
+const httpServer = app.listen(8080, () => {
+  console.log("Escuchando al puerto 8080");
 });
 
 const socketServer = new Server(httpServer);

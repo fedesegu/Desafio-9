@@ -3,8 +3,10 @@ import { usersManager } from "./daos/mongoDB/usersManagerDB.js";
 import { Strategy as GithubStrategy } from "passport-github2";
 import { Strategy as LocalStrategy} from "passport-local"
 import { hashData, compareData} from "./utils.js";
-import { ExtractJwt, Strategy } from "passport-jwt";
+import { ExtractJwt, Strategy as JWTStrategy } from "passport-jwt";
 import config from "./config.js";
+
+// const secretKeyJwt = config.secret_jwt;
 
 passport.serializeUser((user,done)=>{
     done(null,user._id)
@@ -90,11 +92,11 @@ const fromCookies = (req) => {
   };
   
 passport.use(
-    "jwt",
+    'current',
     new JWTStrategy(
       {
         jwtFromRequest: ExtractJwt.fromExtractors([fromCookies]),
-        secretOrKey: config.secret_jwt,
+        secretOrKey: "secretKeyJwt",
       },
       (jwt_payload, done) => {
         done(null, jwt_payload);
